@@ -1,0 +1,175 @@
+body {
+  margin: 0px;
+  padding: 0px;
+  background: #ffffff;
+  font-family: "Pretendard Variable", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+#game-container {
+  position: relative;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+#game-container canvas {
+  display: block;
+  background: #ffffff;
+}
+
+/*
+Copyright (c) 2021 Kil Hyung-jin, with Reserved Font Name Pretendard.
+https://github.com/orioncactus/pretendard
+
+This Font Software is licensed under the SIL Open Font License, Version 1.1.
+This license is copied below, and is also available with a FAQ at:
+http://scripts.sil.org/OFL
+*/
+
+@font-face {
+  font-family: "Pretendard Variable";
+  font-weight: 45 920;
+  font-style: normal;
+  font-display: swap;
+  src: local("Pretendard Variable"),
+    url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/packages/pretendard/dist/web/variable/woff2/PretendardVariable.woff2")
+      format("woff2-variations");
+}
+
+:root {
+  --Font-base: Pretendard Variable, Pretendard, -apple-system,
+    BlinkMacSystemFont, system-ui, Roboto, Helvetica Neue, Segoe UI,
+    Apple SD Gothic Neo, Noto Sans KR, Malgun Gothic, "Apple Color Emoji",
+    "Segoe UI Emoji", Segoe UI Symbol, sans-serif;
+}
+
+body {
+  font-family: var(--Font-base);
+}
+
+/* 리더보드 드로어 스타일 */
+.drawer {
+  position: fixed;
+  top: 0;
+  left: -300px; /* 초기 상태는 화면 밖에 위치 */
+  width: 300px;
+  height: 100vh;
+  background-color: #fff;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  transition: left 0.3s ease;
+  z-index: 1000;
+}
+
+.drawer.open {
+  left: 0; /* 열렸을 때 왼쪽에서 나타남 */
+}
+
+.drawer-content {
+  padding: 20px;
+  overflow-y: auto;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.drawer-content h2 {
+  margin-top: 0;
+  color: #333;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+  padding-bottom: 10px;
+}
+
+.drawer-toggle {
+  position: absolute;
+  top: 50%;
+  right: -30px;
+  width: 30px;
+  height: 60px;
+  background-color: #fff;
+  border: none;
+  border-radius: 0 4px 4px 0;
+  box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  outline: none;
+  transform: translateY(-50%);
+}
+
+.toggle-icon {
+  font-size: 20px;
+  transition: transform 0.3s ease;
+}
+
+.drawer.open .toggle-icon {
+  transform: rotate(180deg);
+}
+
+#leaderboard-list {
+  margin-top: 20px;
+}
+
+.leaderboard-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.leaderboard-item:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.leaderboard-rank {
+  font-weight: bold;
+  width: 30px;
+}
+
+.leaderboard-name {
+  flex-grow: 1;
+  text-align: left;
+  padding: 0 10px;
+}
+
+.leaderboard-score {
+  font-weight: bold;
+  color: #2288dd;
+}
+
+.loading-text {
+  text-align: center;
+  color: #666;
+}
+
+#ang {
+  width: 300px;
+  padding: 7px;
+  border: none;
+  border-bottom: 1px solid gray;
+  background: transparent;
+}
+
+#guess {
+  padding: 8px;
+  border-radius: 6px;
+  outline: none;
+  border: none;
+  background-color: #2288dd;
+  color: #fff;
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+}
+
+#title {
+  font-size: 2rem;
+}

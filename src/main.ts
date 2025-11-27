@@ -132,6 +132,7 @@ class KartPoleGame {
     }).appendTo(canvasWrapper);
     this.two.renderer.domElement.style.minWidth = `${WIDTH}px`;
     this.two.renderer.domElement.style.minHeight = `${HEIGHT}px`;
+    this.two.renderer.domElement.style.border = "1px solid #000";
 
     // Add resize handler to maintain scale
     const handleResize = () => {
@@ -446,7 +447,15 @@ if (mode == "easy") {
     max-width: 50dvw;
   `;
   cont2.style.maxWidth = "50dvw";
+  cont2.style.borderLeft = "2px solid #000";
   cont2.id = "game2-container";
+
+  setTimeout(() => {
+    const cont2gf = document.getElementById("game2-container");
+    if (cont2gf) {
+      cont2gf.style.borderLeft = "2px solid #000";
+    }
+  }, 100);
 
   container.appendChild(cont1);
   container.appendChild(cont2);
